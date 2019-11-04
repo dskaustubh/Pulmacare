@@ -18,14 +18,17 @@ def index():
 
 @app.route("/register",methods=['POST'])
 def signup():
+    #role 1 for hospital,2 for  patient,3 for docs
     data=request.get_json()
     print(data)
     with connection.cursor() as cursor:
-        sql = "INSERT INTO `users` (`name`, `email`,'password','role') VALUES (%s, %s,%s,%d)"
         robj= dict()
         robj['success']=False
         try:
-            cursor.execute(sql, (data['name'], data['email'],data['password'],data['role']))
+            phash=hashlib.md5(data['password'].encode())
+            phash=phash.hexdigest()
+            print(phash)
+            cursor.execute("insert into users (name,email,password,role) values(%s,%s,%s,%s)",(data['name'], data['email'],phash,data['role']))
             robj['success']=True
             
         finally:
