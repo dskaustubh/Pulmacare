@@ -1,11 +1,37 @@
-from flask import Flask,render_template,request,session,redirect
+from flask import Flask,render_template,request,session,redirect,jsonify
+import pymysql.cursors
 import hashlib
 app =Flask(__name__)
 app.secret_key = b'_5#y2L"F4Q8z\n\xec]/'
 
+connection = pymysql.connect(host='localhost',
+                             user='root',
+                             password='',
+                             db='pulmacare',
+                             charset='utf8mb4',
+                             cursorclass=pymysql.cursors.DictCursor,
+                             autocommit=True)
+
 @app.route("/")
 def index():
     return render_template('index.html')
+
+@app.route("/register",methods=['POST'])
+def signup():
+    data=request.get_json()
+    print(data)
+    with connection.cursor() as cursor:
+        sql = "INSERT INTO `users` (`name`, `email`,'password','role') VALUES (%s, %s,%s,%d)"
+        robj= dict()
+        robj['success']=False
+        try:
+            cursor.execute(sql, (data['name'], data['email'],data['password'],data['role']))
+            robj['success']=True
+            
+        finally:
+            return jsonify(robj)
+
+    
 
 if __name__=="__main__":
     app.run(debug=True)
