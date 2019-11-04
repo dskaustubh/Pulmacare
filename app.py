@@ -16,8 +16,10 @@ connection = pymysql.connect(host='localhost',
 def index():
     return render_template('index.html')
 
-@app.route("/register",methods=['POST'])
+@app.route("/register",methods = ['POST','GET'])
 def signup():
+    if request.method == 'GET':
+        return render_template("register.html")
     #role 1 for hospital,2 for  patient,3 for docs
     data=request.get_json()
     print(data)
@@ -28,7 +30,18 @@ def signup():
             phash=hashlib.md5(data['password'].encode())
             phash=phash.hexdigest()
             print(phash)
+            role=data['role']
             cursor.execute("insert into users (name,email,password,role) values(%s,%s,%s,%s)",(data['name'], data['email'],phash,data['role']))
+            if role==1:
+                #hospital
+                pass
+            elif role==2:
+                #patient
+                pass
+            else:
+                #doctor
+                pass
+
             robj['success']=True
             
         finally:
