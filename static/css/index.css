@@ -1,7 +1,8 @@
 body {
     font-family: 'Neuton', serif;
     font-family: 'Poppins';
-    background-color: #97bb35;
+    /* background-color: #97bb35; */
+    background-color: teal;
 }
 
 .navbar {
@@ -36,16 +37,15 @@ body {
 
 
 
-.history .jumbotron{
+.howtouse .jumbotron {
     margin-top: 3em;
     border-radius: 10px;
-    height: 16em;
-    width: 10em;
-    width:50%;
-    background-color: transparent;
-    border: 2px dashed #fff;
+    padding-top: 1em;
+    height: 20em;
+    width: 90%;
+    /* background-color: transparent; */
+    border: 2px dashed yellow;
     padding: 2em;
-    color: white;
     font-weight: bold;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
 }
@@ -55,16 +55,15 @@ body {
     border-style: none;
     border-radius: 10px;
     height: 15em;
-    width: 10em;
-    width:50%;
-    color: #fff;
-    background-color: transparent;
+    width: 90%;
+    padding-top: 1em;
+    /* background-color: transparent; */
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
 }
 
 .footer .jumbotron {
-    background-color: #b5b462;
-    /* background-color: azure; */
+    /* background-color: #b5b462; */
+    background-color: #97bb35;
     margin-top: 1em;
     border-style: none; 
     border-radius: 10px;
@@ -76,8 +75,22 @@ body {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
 }
 
-@media screen and (max-width: 300px) {
+@media screen and (max-width: 1010px) {
     .closer{
         margin-left: 0em;
+    }
+
+    .howtouse .jumbotron {
+        margin-top: 6em;
+        border-radius: 10px;
+        padding-top: 1em;
+        height: 50em;
+        width: 90%;
+        /* background-color: transparent; */
+        border: 2px dashed #fff;
+        padding: 2em;
+        border: none;
+        font-weight: bold;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
     }
 }

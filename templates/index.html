@@ -4,10 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" href="{{ url_for('static',filename='css/index.css') }}">
-    <link href='https://fonts.googleapis.com/css?family=Poppins' rel="stylesheet">
-    <title>Name | HOME</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/index.css') }}" />
+    <link href='https://fonts.googleapis.com/css?family=Poppins' rel="stylesheet" />
+    <title>Pulmacare | HOME</title>
 </head>
 <body>
     <center>
@@ -29,7 +29,7 @@
                                 <a class="nav-link h5 display-5" href="{{ url_for('index') }}">About</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link h5 display-5" href="#services">Services</a>
+                                <a class="nav-link h5 display-5" href="{{ url_for('index') }}#howtouse">How To Use</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link h5 display-5" href="#contactus">Contact Us</a>
@@ -59,33 +59,42 @@
         <!-- End of Jumbotron header -->
 
 
-        <a name="services"></a>
-        <div class="history">
+        
+        <!-- How to Use -->
+        <a name="howtouse"></a>
+        <div class="howtouse">
             <div class="jumbotron">
                 <div class="container">
+                    <h1><u><b>How To Use</b></u></h1>
                     <div class="row">
-                        <div class="col-sm">
-                            <img src="{{ url_for('static',filename='images/logo.jpg') }}" height="100em" width="100em"><br>
-                            <p>Sponsors</p><br>
-                            <p>500</p>
+                        <div class="col-lg-4 col-md-4 col-sm-12">
+                            <h2 class="display-6">For patients</h2>
+                            <span class="badge badge-danger">Sign up</span><br><br>
+                            <span class="badge badge-warning">Login and view your report to <br>check your health status</span><br><br>
+                            <span class="badge badge-success">Select a doctor who you would want<br> to consult based on <br>our recommendations</span>
                         </div>
-                        <div class="col-sm">
-                            <img src="{{ url_for('static',filename='images/logo.jpg') }}" height="100em" width="100em"><br>
-                            <p>Money sanctioned</p><br>
-                            <p>$58960</p>
+                        <div class="col-lg-4 col-md-4 col-sm-12">
+                                <h2 class="display-6">For Doctors</h2>
+                                <span class="badge badge-danger">Sign up</span><br><br>
+                                <span class="badge badge-warning">Login and view the list of patients</span><br><br>
+                                <span class="badge badge-success">Select the patient and <br>view his/her information</span>
                         </div>
-                        <div class="col-sm">
-                            <img src="{{ url_for('static',filename='images/logo.jpg') }}" height="100em" width="100em"><br>
-                            <p>Fests registered</p><br>
-                            <p>1000</p>
+                        <div class="col-lg-4 col-md-4 col-sm-12" >
+                                <h2 class="display-6">For Hospitals</h2>
+                                <span class="badge badge-danger">Sign up</span><br><br>
+                                <span class="badge badge-warning">Search the database for the <br>patients scanned X-ray</span><br><br>
+                                <span class="badge badge-success">Login and upload the scanned X-ray <br>of the patient</span>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
+        <!-- End of How to Use -->
+
         <!-- Previous sponsors -->
         <div class="sponsor">
             <div class="jumbotron">
-                <h2><b>Our sponsors</b></h2>
+                <h2><b>What our users tell about us</b></h2>
                 <marquee>
                     <img src="{{ url_for('static',filename='images/logo.jpg') }}" height="100em" width="150em" alt="sponsor1">
                     <img src="{{ url_for('static',filename='images/logo.jpg') }}" height="100em" width="150em" style="margin-left: 3em;" alt="sponsor2">
@@ -107,8 +116,7 @@
                     <!-- <a href="https://www.facebook.com" target="_blank"><img src="static/images/facebook.png" style="z-index: 5;" alt="facebook"></a>
                     <a href="https://www.linkedin.com" target="_blank"><img src="static/images/linkedin.png" alt="linkedin"></a>
                     <a href="https://www.youtube.com" target="_blank"><img src="static/images/youtube.png" alt="youtube"></a> -->
-                </div>
-                
+                </div> 
             </div>
         </div>
         <!-- End of Footer -->
