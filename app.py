@@ -51,7 +51,14 @@ def signup():
 @app.route("/login",methods = ['POST'])
 def login():
     #check if logged in
-
+    if session['loggedin']:
+        if session['role']==1:
+            #role 1 for hospital,2 for  patient,3 for docs
+            pass
+        elif session['role']==2:
+            pass
+        else:
+            pass
     data=request.get_json()
     print(data)
     email=data['email']
@@ -68,6 +75,7 @@ def login():
                 #init the session variables
                 session['name']=myresult['name']
                 session['role']=myresult['role']
+                session['loggedin']=True
             else:
                 myresult['success']=False
         else:
