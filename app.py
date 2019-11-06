@@ -56,14 +56,17 @@ def login():
     print(data)
     email=data['email']
     password=data['password']
-    phash=hashlib.md5(data['password'].encode())
+    phash=hashlib.md5(password.encode())
     phash=phash.hexdigest()
+    print(phash)
     with connection.cursor() as cursor:
         cursor.execute("select * from users where email=%s ",email)
         myresult = cursor.fetchone()
-        print(myresult)
         if(myresult):
-            myresult['success']=True
+            if(phash==myresult['password']):
+                myresult['success']=True
+            else:
+                myresult['success']=False
         else:
             myresult=dict()
             myresult['success']=False
