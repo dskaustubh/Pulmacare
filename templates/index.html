@@ -106,6 +106,63 @@
         </div>
         <!-- End of previous sponsors -->
 
+        <!-- Login and signup -->
+        <div class="login">
+            <div class="jumbotron container">
+                <div class="row">
+
+                    <div class="col-lg-6 col-sm-12">
+                        <h3>Login</h3>
+                        <form action="/login" method="POST">
+                            <div class="form-group">
+                              <label for="email">Email address</label>
+                              <input type="email" class="form-control" id="log_email" aria-describedby="emailHelp" placeholder="Email address">
+                            </div>
+                            <div class="form-group">
+                              <label for="password">Password</label>
+                              <input type="password" class="form-control" id="log_psw" placeholder="Password">
+                              <small class="form-text text-muted">Never share your password with anyone else.</small>
+                            </div>
+                            <button type="submit" class="btn btn-success">Submit</button>
+                        </form>
+                    </div>
+
+                    <div class="col-lg-6 col-sm-12">
+                        <h3 style="margin-top: 2em;">Sign up</h3>
+                        <form action = "/register" method = "POST">
+                            <div class="form-group">
+                                <label for="email">Name</label>
+                                <input type="text" class="form-control" id="name" placeholder="Name">
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email address</label>
+                                <input type="email" class="form-control" id="sgn_email" aria-describedby="emailHelp" placeholder="Email address">
+                            </div>
+                            <div class="form-group">
+                                <label for="password">Password</label>
+                                <input type="password" class="form-control" id="sgn_psw" placeholder="Password">
+                                <small id="psw_small" class="form-text text-muted">Never share your password with anyone else.</small>
+                            </div>
+                            <div class="form-group">
+                                <label for="password">Confirm password</label>
+                                <input type="password" class="form-control" id="conf_psw" placeholder="Confirm password">
+                                <small id="psw_small" class="form-text text-muted">Never share your password with anyone else.</small>
+                            </div>
+                            <button type="submit" class="btn btn-success">Submit</button>
+                            {% with messages = get_flashed_messages() %}
+                                {% if messages %}
+                                    {% for message in messages %}
+                                        <h3>{{ message }}</h3>
+                                    {% endfor %}
+                                {% endif %}
+                            {% endwith %}
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End of login and signup -->
+
          <!-- Footer -->
          <a name="contactus"></a>
          <div class="footer">
