@@ -65,16 +65,21 @@ def login():
         if(myresult):
             if(phash==myresult['password']):
                 myresult['success']=True
+                #init the session variables
+                session['name']=myresult['name']
+                session['role']=myresult['role']
             else:
                 myresult['success']=False
         else:
             myresult=dict()
             myresult['success']=False
         return jsonify(myresult)
+@app.route("/logout")
+def logout():
+    session.clear()
+    return render_template("login.html")
 
 
-
-        
 
 if __name__=="__main__":
     app.run(debug=True)
