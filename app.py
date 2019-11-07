@@ -1,9 +1,13 @@
 from flask import Flask,render_template,request,session,redirect,jsonify,url_for
-
 import pymysql.cursors
 import hashlib
+import os
+from werkzeug.utils import secure_filename
 app =Flask(__name__)
 app.secret_key = b'_5#y2L"F4Q8z\n\xec]/'
+
+UPLOAD_FOLDER = '/static/pro_pics'
+app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
 connection = pymysql.connect(host='localhost',
                              user='root',
@@ -23,6 +27,9 @@ def signup():
         return render_template("register.html")
     #role 1 for hospital,2 for  patient,3 for docs
     data=request.get_json()
+    file = request.files['file']
+    filename = secure_filename(file.filename)
+    file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
     print(data)
     with connection.cursor() as cursor:
         robj= dict()
