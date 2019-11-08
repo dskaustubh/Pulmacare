@@ -13,10 +13,6 @@ email=""
 psw=""
 conf_psw=""
 
-UPLOAD_FOLDER = '/static/pro_pics'
-app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
-
-
 connection = pymysql.connect(host='localhost',
                              user='root',
                              password='',
@@ -46,11 +42,8 @@ def signup():
         phash=phash.hexdigest()
         role=request.form['role']
         try:
-
-
             location=request.form['location']
             print(location)
-            print("je")
             cursor.execute("insert into users (name,email,password,role,pic_url,location) values(%s,%s,%s,%s,%s,%s)",(name,email,phash,role,filename,location))
             if role==1:
                 #hospital
