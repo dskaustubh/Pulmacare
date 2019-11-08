@@ -132,16 +132,11 @@
                         <form action = "/register" method = "POST" enctype = "multipart/form-data">
                             <div class="form-group">
                                 <label for="role">Role</label>
-                                <div class="dropdown">
-                                    <button class="btn btn-secondary dropdown-toggle" type="button" name="role" id="role" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    Role
-                                    </button>
-                                    <div class="dropdown-menu" aria-labelledby="role">
-                                    <button onclick="change_doc()" class="dropdown-item" type="button">Doctor</button>
-                                    <button onclick="change_pat()" class="dropdown-item" type="button">Patient</button>
-                                    <button onclick="change_hosp()" class="dropdown-item" type="button">Hospital</button>
-                                    </div>
-                                </div>
+                                <select id="role" name="role">
+                                    <option value="volvo">Doctor</option>
+                                    <option value="saab">Patient</option>
+                                    <option value="mercedes">Hospital</option>
+                                </select>
                             </div>  
                             <div class="form-group">
                                 <label for="email" onchange="getLocation()">Name</label>
