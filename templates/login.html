@@ -38,7 +38,7 @@
                                 <a href="" class="btn btn-outline-primary closer" style="margin-left: 20em;">Login</a>
                             </li>
                             <li class="nav-item">
-                                <a href="{{ url_for('login_page') }}" class="btn btn-outline-info closer" style="margin-left: 2em;">Sign up</a>
+                                <a href="url_for('login.html')" class="btn btn-outline-info closer" style="margin-left: 2em;">Sign up</a>
                             </li>
                             
                         </ul>
@@ -58,6 +58,78 @@
         </div>
         <!-- End of Jumbotron header -->
 
+        <!-- Login and signup -->
+        <div class="login">
+            <div class="jumbotron container">
+                <div class="row">
+
+                    <div class="col-lg-6 col-sm-12">
+                        <h3>Login</h3>
+                        <form action="/login" method="POST">
+                            <div class="form-group">
+                                <label for="email">Email address</label>
+                                <input type="email" class="form-control" id="log_email" aria-describedby="emailHelp" placeholder="Email address">
+                            </div>
+                            <div class="form-group">
+                                <label for="password">Password</label>
+                                <input type="password" class="form-control" id="log_psw" placeholder="Password">
+                                <small class="form-text text-muted">Never share your password with anyone else.</small>
+                            </div>
+                            <button type="submit" class="btn btn-success">Submit</button>
+                        </form>
+                    </div>
+
+                    <div class="col-lg-6 col-sm-12">
+                        <h3 style="margin-top: 2em;">Sign up</h3>
+                        <form action = "/register" method = "POST" enctype = "multipart/form-data">
+                            <div class="form-group">
+                                <label for="role">Role</label>
+                                <select id="role" name="role">
+                                    <option value="3">Doctor</option>
+                                    <option value="2">Patient</option>
+                                    <option value="1">Hospital</option>
+                                </select>
+                            </div>  
+                            <div class="form-group">
+                                <label for="email" onchange="getLocation()">Name</label>
+                                <input type="text" class="form-control" name="name" id="name" placeholder="Name">
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email address</label>
+                                <input type="email" class="form-control" name="sgn_email" id="sgn_email" aria-describedby="emailHelp" placeholder="Email address">
+                            </div>
+                            <div class="form-group">
+                                <label for="password">Password</label>
+                                <input type="password" class="form-control" name="sgn_psw" id="sgn_psw" placeholder="Password">
+                                <small id="psw_small" class="form-text text-muted">Never share your password with anyone else.</small>
+                            </div>
+                            <div class="form-group">
+                                <label for="password">Confirm password</label>
+                                <input type="password" class="form-control" name="conf_psw" id="conf_psw" placeholder="Confirm password">
+                                <small id="psw_small" class="form-text text-muted">Never share your password with anyone else.</small>
+                            </div>
+                            <div class="form-group">
+                                <label for="profile_pic">Profile picture </label>
+                                <input id="file" name="file" type="file" class="btn btn-info" accept="image/*">
+                            </div>
+                            <div class="form-group">
+                                <label for="location">Click on the button to get the geolocation</label>
+                                <button class="btn btn-info" id="location" onclick="getLocation()">Get GeoLocation</button>
+                            </div>
+                            <button type="submit" class="btn btn-success">Submit</button>
+                            {% with messages = get_flashed_messages() %}
+                                {% if messages %}
+                                    {% for message in messages %}
+                                        <h3>{{ message }}</h3>
+                                    {% endfor %}
+                                {% endif %}
+                            {% endwith %}
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End of login and signup -->
       
         <!-- How to Use -->
         <a name="howtouse"></a>
