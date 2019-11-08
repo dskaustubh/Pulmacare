@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 08, 2019 at 12:45 PM
+-- Generation Time: Nov 08, 2019 at 06:41 PM
 -- Server version: 10.3.16-MariaDB
 -- PHP Version: 7.3.7
 
@@ -75,9 +75,18 @@ CREATE TABLE `users` (
   `password` varchar(50) NOT NULL,
   `role` varchar(1) NOT NULL,
   `pic_url` varchar(50) NOT NULL,
-  `location` text NOT NULL,
+  `location` text NOT NULL DEFAULT 'mg road',
   `time_stamp` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `users`
+--
+
+INSERT INTO `users` (`u_id`, `name`, `email`, `password`, `role`, `pic_url`, `location`, `time_stamp`) VALUES
+(12, 'eden', 'kSddd', '8e300e96f75d7ecd26ab09421175a77d', '1', 'pro_pics/Chelsea_FC_Logo_Wallpapers_2013_.jpg', 'maneee', '2019-11-08 13:52:21'),
+(13, 'edenrf', 'kSddd@gmail.com', '2c5733af0f7fac1bf1950b736dd1a090', '2', 'pro_pics/Chelsea_FC_Logo_Wallpapers_2013_.jpg', 'home', '2019-11-08 14:54:30'),
+(14, 'chinmay', '233355gergs1@gmail.com', '5f4dcc3b5aa765d61d8327deb882cf99', 'v', 'pro_pics/IMG_7300.JPG', 'mg road', '2019-11-08 15:39:34');
 
 -- --------------------------------------------------------
 
@@ -162,7 +171,7 @@ ALTER TABLE `patients`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `u_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `u_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT for table `xrays`
