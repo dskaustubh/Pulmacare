@@ -72,21 +72,20 @@ def login():
             pass
         else:
             pass
-    #validation!
-    flag=0
+    # #validation!
+    # flag=0
     email = request.form['log_email']
     psw = request.form['log_psw']
     if(email.find('@')==-1):
-        flag=1
+        # flag=1
         flash("Error in the email address provided")    
     if(len(psw)<6):
-        flag=1
+        # flag=1
         flash("Password should be atleast 6 characters long")
-    if(flag==0):
-        flash("Form submitted")
-        return redirect(url_for('index'))
+    # if(flag==0):
+    #     flash("Form submitted")
+    #     return redirect(url_for('index'))
     # validation end 
-
     password=psw
     phash=hashlib.md5(password.encode())
     phash=phash.hexdigest()
