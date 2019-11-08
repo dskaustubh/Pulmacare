@@ -34,20 +34,24 @@ def signup():
     if request.method == 'GET':
         return render_template("register.html")
     #role 1 for hospital,2 for  patient,3 for docs
-    data=request.get_json()
-    file = request.files['file']
-    filename = secure_filename(file.filename)
-    file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
-    print(data)
+
+
     with connection.cursor() as cursor:
         robj= dict()
         robj['success']=False
         try:
-            phash=hashlib.md5(data['password'].encode())
+            file = request.files['file']
+            filename = secure_filename(file.filename)
+            filename="pro_pics/"+filename
+            file.save(filename)
+            password=request.form['password']
+            name=request.form['name']
+            email=request.form['email']
+            phash=hashlib.md5(password.encode())
             phash=phash.hexdigest()
-            print(phash)
-            role=data['role']
-            cursor.execute("insert into users (name,email,password,role) values(%s,%s,%s,%s)",(data['name'], data['email'],phash,data['role']))
+            role=request.form['role']
+            location=request.form['location']
+            cursor.execute("insert into users (name,email,password,role,pic_url,location) values(%s,%s,%s,%s,%s,%s)",(name,email,phash,role,filename,location))
             if role==1:
                 #hospital
                 pass
@@ -62,6 +66,7 @@ def signup():
             
         finally:
             return jsonify(robj)
+
 
 @app.route("/login",methods = ['POST'])
 def login():
