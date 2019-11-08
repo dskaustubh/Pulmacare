@@ -17,6 +17,10 @@ connection = pymysql.connect(host='localhost',
 def index():
     return render_template('index.html')
 
+@app.route("/signup_page")
+def signup_page():
+    return render_template('signup.html')
+
 @app.route("/login_page")
 def login_page():
     return render_template('login.html')
