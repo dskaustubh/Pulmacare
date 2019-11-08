@@ -1,5 +1,4 @@
 from flask import Flask,render_template,request,session,redirect,jsonify,url_for,flash
-
 import pymysql.cursors
 import hashlib
 import os
@@ -18,7 +17,7 @@ connection = pymysql.connect(host='localhost',
 def index():
     return render_template('index.html')
     
-@app.route("/register",methods = ['POST','GET'])
+@app.route("/register",methods = ['POST'])
 def signup():
     #role 1 for hospital,2 for  patient,3 for docs
     with connection.cursor() as cursor:
@@ -34,6 +33,7 @@ def signup():
         phash=hashlib.md5(password.encode())
         phash=phash.hexdigest()
         role=request.form['role']
+        print("hey")
         try:
             location=request.form['location']
             cursor.execute("insert into users (name,email,password,role,pic_url,location) values(%s,%s,%s,%s,%s,%s)",(name,email,phash,role,filename,location))
