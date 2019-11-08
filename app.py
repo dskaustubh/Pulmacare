@@ -1,4 +1,6 @@
-from flask import Flask,render_template,request,session,redirect,jsonify,url_for
+
+from flask import Flask,render_template,request,session,redirect,jsonify,url_for,flash
+
 import pymysql.cursors
 import hashlib
 import os
@@ -6,8 +8,15 @@ from werkzeug.utils import secure_filename
 app =Flask(__name__)
 app.secret_key = b'_5#y2L"F4Q8z\n\xec]/'
 
+# Login and sign up form data
+name=""
+email=""
+psw=""
+conf_psw=""
+
 UPLOAD_FOLDER = '/static/pro_pics'
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
+
 
 connection = pymysql.connect(host='localhost',
                              user='root',
@@ -21,6 +30,22 @@ connection = pymysql.connect(host='localhost',
 def index():
     return render_template('index.html')
 
+@app.route("/login", methods = ['POST'])
+def login():
+    flag=0
+    email = request.form['log_email']
+    psw = request.form['log_psw']
+    if(email.find('@')==-1):
+        flag=1
+        flash("Error in the email address provided")    
+    if(len(psw)<6):
+        flag=1
+        flash("Password should be atleast 6 characters long")
+    if(flag==0):
+        flash("Form submitted")
+        return redirect(url_for('index'))    
+
+    
 @app.route("/register",methods = ['POST','GET'])
 def signup():
     if request.method == 'GET':
