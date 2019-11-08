@@ -35,22 +35,25 @@ def signup():
         return render_template("register.html")
     #role 1 for hospital,2 for  patient,3 for docs
 
-
     with connection.cursor() as cursor:
         robj= dict()
         robj['success']=False
+        file = request.files['file']
+        filename = secure_filename(file.filename)
+        filename="pro_pics/"+filename
+        file.save(filename)
+        password=request.form['password']
+        name=request.form['name']
+        email=request.form['email']
+        phash=hashlib.md5(password.encode())
+        phash=phash.hexdigest()
+        role=request.form['role']
         try:
-            file = request.files['file']
-            filename = secure_filename(file.filename)
-            filename="pro_pics/"+filename
-            file.save(filename)
-            password=request.form['password']
-            name=request.form['name']
-            email=request.form['email']
-            phash=hashlib.md5(password.encode())
-            phash=phash.hexdigest()
-            role=request.form['role']
+
+
             location=request.form['location']
+            print(location)
+            print("je")
             cursor.execute("insert into users (name,email,password,role,pic_url,location) values(%s,%s,%s,%s,%s,%s)",(name,email,phash,role,filename,location))
             if role==1:
                 #hospital
