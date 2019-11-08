@@ -1,3 +1,4 @@
+var role = ""
 function change_doc() 
 {
     document.getElementById("role").innerHTML="Doctor";
@@ -13,10 +14,6 @@ function change_hosp()
     document.getElementById("role").innerHTML="Hospital";
 }
 
-function change_user() 
-{
-    document.getElementById("role").innerHTML="User";
-  
-}
+
 
 

@@ -31,23 +31,27 @@ def index():
     
 @app.route("/register",methods = ['POST','GET'])
 def signup():
-    if request.method == 'GET':
-        return render_template("register.html")
     #role 1 for hospital,2 for  patient,3 for docs
-    data=request.get_json()
-    file = request.files['file']
-    filename = secure_filename(file.filename)
-    file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
-    print(data)
     with connection.cursor() as cursor:
         robj= dict()
         robj['success']=False
+        file = request.files['file']
+        filename = secure_filename(file.filename)
+        filename="pro_pics/"+filename
+        file.save(filename)
+        password=request.form['password']
+        name=request.form['name']
+        email=request.form['email']
+        phash=hashlib.md5(password.encode())
+        phash=phash.hexdigest()
+        role=request.form['role']
         try:
-            phash=hashlib.md5(data['password'].encode())
-            phash=phash.hexdigest()
-            print(phash)
-            role=data['role']
-            cursor.execute("insert into users (name,email,password,role) values(%s,%s,%s,%s)",(data['name'], data['email'],phash,data['role']))
+
+
+            location=request.form['location']
+            print(location)
+            print("je")
+            cursor.execute("insert into users (name,email,password,role,pic_url,location) values(%s,%s,%s,%s,%s,%s)",(name,email,phash,role,filename,location))
             if role==1:
                 #hospital
                 pass
@@ -62,6 +66,7 @@ def signup():
             
         finally:
             return jsonify(robj)
+
 
 @app.route("/login",methods = ['POST'])
 def login():
@@ -88,10 +93,9 @@ def login():
         flash("Form submitted")
         return redirect(url_for('index'))
     # validation end 
-    data=request.get_json()
-    print(data)
-    email=data['email']
-    password=data['password']
+
+    
+    password=psw
     phash=hashlib.md5(password.encode())
     phash=phash.hexdigest()
     print(phash)

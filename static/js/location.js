@@ -1,7 +1,9 @@
 var loc = document.getElementById("location");
 var lat,lon;
 
-function getLocation() {
+function getLocation(e) {
+  e.preventDefault();
+  console.log("Geo");
   if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(showPosition);
   } else { 
