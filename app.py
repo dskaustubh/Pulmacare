@@ -28,9 +28,9 @@ def signup():
         filename = secure_filename(file.filename)
         filename="pro_pics/"+filename
         file.save(filename)
-        password=request.form['password']
+        password=request.form['sgn_psw']
         name=request.form['name']
-        email=request.form['email']
+        email=request.form['sgn_email']
         phash=hashlib.md5(password.encode())
         phash=phash.hexdigest()
         role=request.form['role']
