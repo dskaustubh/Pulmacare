@@ -64,7 +64,7 @@ def signup():
 @app.route("/login",methods = ['POST'])
 def login():
     #check if logged in
-    if session['loggedin']:
+    if 'loggedin' in session:
         if session['role']==1:
             #role 1 for hospital,2 for  patient,3 for docs
             pass
