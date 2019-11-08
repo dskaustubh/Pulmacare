@@ -29,22 +29,6 @@ connection = pymysql.connect(host='localhost',
 @app.route("/")
 def index():
     return render_template('index.html')
-
-@app.route("/login", methods = ['POST'])
-def login():
-    flag=0
-    email = request.form['log_email']
-    psw = request.form['log_psw']
-    if(email.find('@')==-1):
-        flag=1
-        flash("Error in the email address provided")    
-    if(len(psw)<6):
-        flag=1
-        flash("Password should be atleast 6 characters long")
-    if(flag==0):
-        flash("Form submitted")
-        return redirect(url_for('index'))    
-
     
 @app.route("/register",methods = ['POST','GET'])
 def signup():
@@ -91,6 +75,20 @@ def login():
             pass
         else:
             pass
+    #validation!
+    flag=0
+    email = request.form['log_email']
+    psw = request.form['log_psw']
+    if(email.find('@')==-1):
+        flag=1
+        flash("Error in the email address provided")    
+    if(len(psw)<6):
+        flag=1
+        flash("Password should be atleast 6 characters long")
+    if(flag==0):
+        flash("Form submitted")
+        return redirect(url_for('index'))
+    # validation end 
     data=request.get_json()
     print(data)
     email=data['email']
