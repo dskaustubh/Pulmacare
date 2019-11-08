@@ -93,10 +93,9 @@ def login():
         flash("Form submitted")
         return redirect(url_for('index'))
     # validation end 
-    data=request.get_json()
-    print(data)
-    email=data['email']
-    password=data['password']
+
+    
+    password=psw
     phash=hashlib.md5(password.encode())
     phash=phash.hexdigest()
     print(phash)
