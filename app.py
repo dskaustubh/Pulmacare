@@ -74,7 +74,7 @@ def login():
     phash=phash.hexdigest()
     print(phash)
     with connection.cursor() as cursor:
-        cursor.execute("select * from users where email=%s ",email)
+        cursor.execute("select * from users where email=%s",email)
         myresult = cursor.fetchone()
         if(myresult):
             if(phash==myresult['password']):
@@ -93,7 +93,6 @@ def login():
 def logout():
     session.clear()
     return render_template("login.html")
-
 
 
 if __name__=="__main__":
