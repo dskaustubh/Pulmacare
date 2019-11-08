@@ -6,13 +6,6 @@ import os
 from werkzeug.utils import secure_filename
 app =Flask(__name__)
 app.secret_key = b'_5#y2L"F4Q8z\n\xec]/'
-
-# Login and sign up form data
-name=""
-email=""
-psw=""
-conf_psw=""
-
 connection = pymysql.connect(host='localhost',
                              user='root',
                              password='',
