@@ -33,7 +33,7 @@ def signup():
         phash=hashlib.md5(password.encode())
         phash=phash.hexdigest()
         role=request.form['role']
-        print("hey")
+        print(role)
         try:
             #location=request.form['location'] mostly not req but we will see
             cursor.execute("insert into users (name,email,password,role,pic_url) values(%s,%s,%s,%s,%s)",(name,email,phash,role,filename))
