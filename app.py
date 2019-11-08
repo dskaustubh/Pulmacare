@@ -36,7 +36,6 @@ def signup():
         role=request.form['role']
         try:
             location=request.form['location']
-            print(location)
             cursor.execute("insert into users (name,email,password,role,pic_url,location) values(%s,%s,%s,%s,%s,%s)",(name,email,phash,role,filename,location))
             if role==1:
                 #hospital
