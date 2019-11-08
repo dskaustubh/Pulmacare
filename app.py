@@ -83,7 +83,6 @@ def login():
         return redirect(url_for('index'))
     # validation end 
 
-    
     password=psw
     phash=hashlib.md5(password.encode())
     phash=phash.hexdigest()
