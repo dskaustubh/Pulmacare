@@ -31,10 +31,7 @@ def index():
     
 @app.route("/register",methods = ['POST','GET'])
 def signup():
-    if request.method == 'GET':
-        return render_template("register.html")
     #role 1 for hospital,2 for  patient,3 for docs
-
     with connection.cursor() as cursor:
         robj= dict()
         robj['success']=False
