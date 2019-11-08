@@ -35,8 +35,8 @@ def signup():
         role=request.form['role']
         print("hey")
         try:
-            location=request.form['location']
-            cursor.execute("insert into users (name,email,password,role,pic_url,location) values(%s,%s,%s,%s,%s,%s)",(name,email,phash,role,filename,location))
+            #location=request.form['location'] mostly not req but we will see
+            cursor.execute("insert into users (name,email,password,role,pic_url) values(%s,%s,%s,%s,%s)",(name,email,phash,role,filename))
             if role==1:
                 #hospital
                 pass
