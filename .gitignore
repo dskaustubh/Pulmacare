@@ -4,3 +4,4 @@ chest_xray/
 model.h5
 pulmacare.sql
 ./test_03.jpeg
+./__pycache__
