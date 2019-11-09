@@ -9,4 +9,3 @@ x = image.img_to_array(img)
 x = np.expand_dims(x, axis=0)
 x = x/255.0
 pred = print(model.predict_proba(x))
-return(pred)
