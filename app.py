@@ -54,7 +54,7 @@ def signup():
             if role=="1":
                 #hospital
                 cursor.execute("insert into hospitals(u_id) values(%s)",(myresult['u_id']))
-            elif role==2:
+            elif role=="2":
                 #patient
                 cursor.execute("insert into patients(u_id) values(%s)",(myresult['u_id']))
             else:
