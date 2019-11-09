@@ -146,10 +146,9 @@ def patdash():
 def docdash():
     with connection.cursor() as cursor:
         cursor.execute("select * from xrays")
-        x_imgs=cursor.fetchall()
-        print(x_imgs)
+        xs=cursor.fetchall()
 
-    return render_template("doctor.html")
+    return render_template("doctor.html",xs=xs)
 
 @app.route("/logout")
 def logout():
