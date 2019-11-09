@@ -208,9 +208,11 @@ def doc_report(x_id):
         res1=cursor.fetchall()
         print(res1)
     return render_template("doctor_report.html")
-@app.route("/post_pres")
+@app.route("/post_pres",methods = ['POST'])
 def post_pres():
-    pass
+    prescription = request.form.get("text")
+    print(prescription)
+    return "check"
 
 if __name__=="__main__":
     app.run(debug=True,threaded=False)
