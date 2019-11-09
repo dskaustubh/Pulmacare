@@ -124,10 +124,10 @@ def login():
             else:
                 myresult['success']=False
                 flash("Login unsuccerssful")
-                return redirect(url_for('login_page')
+                return redirect(url_for('login_page'))
         else:
             flash("Login unsuccerssful")
-            return redirect(url_for('login_page')
+            return redirect(url_for('login_page'))
 @app.route("/hosdash")
 def hosdash():
     with connection.cursor() as cursor:
