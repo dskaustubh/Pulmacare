@@ -144,7 +144,12 @@ def patdash():
     return render_template("patient.html")
 @app.route("/docdash")
 def docdash():
-    return render_template("doctors.html")
+    with connection.cursor() as cursor:
+        cursor.execute("select * from xrays")
+        x_imgs=cursor.fetchall()
+        print(x_imgs)
+
+    return render_template("doctor.html")
 
 @app.route("/logout")
 def logout():
