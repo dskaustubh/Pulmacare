@@ -156,6 +156,10 @@ def logout():
 
 @app.route("/uploadxray",methods=['POST'])
 def uploadxray():
+    file = request.files['file']
+    filename = secure_filename(file.filename)
+    filename="xrays/"+filename
+    file.save(filename)
     #pred=predict.prediction()
     model = tf.keras.models.load_model('model.h5')
     img = image.load_img('test_3.jpeg', target_size=(100,100))#Pneumonia Image 
