@@ -2,11 +2,9 @@ from flask import Flask,render_template,request,session,redirect,jsonify,url_for
 import pymysql.cursors
 import hashlib
 import os
-import predict
 import numpy as np
 import pandas as pd
 import tensorflow as tf
-from keras.models import load_model
 from keras.preprocessing import image
 from werkzeug.utils import secure_filename
 app =Flask(__name__)
@@ -173,7 +171,7 @@ def uploadxray():
     hazard=eden[1:]
     hazard=float(hazard)
     with connection.cursor() as cursor:
-        cursor.execute("insert into (h_id,p_id,xray_url,predict,stage)values(%s,%s,%s,%s,%s)",(str(session['h_id'])),)
+        cursor.execute("insert into (h_id,p_id,xray_url,predict,stage)values(%s,%s,%s,%s,%s)",(str(session['h_id'])),str(session['p_id']),filename,pre)
     return("hi")
     
 if __name__=="__main__":
