@@ -203,6 +203,7 @@ def uploadxray():
 def doc_report(x_id):
     with connection.cursor() as cursor:
         sql_req="select * from xrays where x_id="+str(x_id)
+        session['x_id']=x_id
         cursor.execute(sql_req)
         res1=cursor.fetchall()
         print(res1)
@@ -214,7 +215,8 @@ def post_pres():
     print(prescription)
     print(support)
     with connection.cursor() as cursor:
-        cursor.execute("insert into reports (prescription,support,d_id,x_id) values(%s,%s,%s,%s)",(prescription,support,str(session['d_id']),))
+        cursor.execute("insert into reports (prescription,support,d_id,x_id) values(%s,%s,%s,%s)",(prescription,support,str(session['d_id']),str(session['x_id'])))
+        session['x_id']=''
     return "check"
 
 if __name__=="__main__":
