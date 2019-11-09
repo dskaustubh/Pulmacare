@@ -170,7 +170,7 @@ def logout():
 def uploadxray():
     file = request.files['file']
     filename = secure_filename(file.filename)
-    filename="xrays/"+filename
+    filename="static/xrays/"+filename
     file.save(filename)
     #pred=predict.prediction()
     model = tf.keras.models.load_model('model.h5')
