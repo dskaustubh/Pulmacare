@@ -118,23 +118,34 @@ def login():
                     cursor.execute(sql_req)
                     res1=cursor.fetchone()
                     session['h_id']=res1['h_id']
-                    return render_template("hospitals.html")
+                    return redirect(url_for('hosdash'))
                 elif session['role']=="2":
                     cursor.execute("select * from patients where u_id=%s",str(session['u_id']))
                     res1=cursor.fetchone()
                     session['p_id']=res1['p_id']
-                    return render_template("patient.html")
+                    #return render_template("patient.html")
+                    return redirect(url_for('patdash'))
                 else:
                     cursor.execute("select * from doctors where u_id=%s",str(session['u_id']))
                     res1=cursor.fetchone()
                     session['d_id']=res1['d_id']
-                    return render_template("doctor.html")
+                    return redirect(url_for('docdash'))
             else:
                 myresult['success']=False
         else:
             myresult=dict()
             myresult['success']=False
         return jsonify(myresult)
+@app.route("/hosdash")
+def hosdash():
+    return render_template("hospitals.html")
+@app.route("/patdash")
+def patdash():
+    return render_template("patient.html")
+@app.route("/docdash")
+def docdash():
+    return render_template("doctors.html")
+
 @app.route("/logout")
 def logout():
     session.clear()
