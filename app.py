@@ -83,15 +83,9 @@ def login():
     email = request.form['log_email']
     psw = request.form['log_psw']
     if(email.find('@')==-1):
-        # flag=1
         flash("Error in the email address provided")    
     if(len(psw)<6):
-        # flag=1
         flash("Password should be atleast 6 characters long")
-    # if(flag==0):
-    #     flash("Form submitted")
-    #     return redirect(url_for('index'))
-    # validation end 
     password=psw
     phash=hashlib.md5(password.encode())
     phash=phash.hexdigest()
@@ -129,10 +123,11 @@ def login():
                     return redirect(url_for('docdash'))
             else:
                 myresult['success']=False
+                flash("Login unsuccerssful")
+                return redirect(url_for('login_page')
         else:
-            myresult=dict()
-            myresult['success']=False
-        return jsonify(myresult)
+            flash("Login unsuccerssful")
+            return redirect(url_for('login_page')
 @app.route("/hosdash")
 def hosdash():
     with connection.cursor() as cursor:
