@@ -3,6 +3,7 @@ import pymysql.cursors
 import hashlib
 import os
 from werkzeug.utils import secure_filename
+from predict import pred
 app =Flask(__name__)
 app.secret_key = b'_5#y2L"F4Q8z\n\xec]/'
 connection = pymysql.connect(host='localhost',
