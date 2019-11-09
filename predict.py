@@ -1,6 +1,5 @@
 import numpy as np
 import pandas as pd
-import matplotlib.pyplot as plt
 from keras.models import load_model
 from keras.preprocessing import image
 model = load_model('model.h5')
