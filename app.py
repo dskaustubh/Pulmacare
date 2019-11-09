@@ -137,6 +137,10 @@ def hosdash():
     return render_template("hospitals.html",res=res)
 @app.route("/patdash")
 def patdash():
+    with connection.cursor() as cursor:
+        cursor.execute("select * from xrays where p_id=%s",str(session['p_id']))
+        x_imgs=cursor.fetchall()
+        print(x_imgs)
     return render_template("patient.html")
 @app.route("/docdash")
 def docdash():
