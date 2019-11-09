@@ -47,7 +47,6 @@ def signup():
         role=request.form['role']
         print(role)
         try:
-            #location=request.form['location'] mostly not req but we will see
             cursor.execute("insert into users (name,email,password,role,pic_url) values(%s,%s,%s,%s,%s)",(name,email,phash,role,filename))
             cursor.execute("select * from users where email=%s",email)
             myresult = cursor.fetchone()
@@ -214,6 +213,8 @@ def post_pres():
     support = request.form.get("support")
     print(prescription)
     print(support)
+    with connection.cursor() as cursor:
+        cursor.execute("insert into reports (prescription,support,d_id,x_id) values(%s,%s,%s,%s)",(prescription,support,str(session['d_id']),))
     return "check"
 
 if __name__=="__main__":
