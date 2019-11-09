@@ -73,6 +73,13 @@
                         <small class="form-text text-muted">Never share your password with anyone else.</small>
                     </div>
                     <button type="submit" class="btn btn-success">Submit</button>
+                    {% with messages = get_flashed_messages() %}
+                        {% if messages %}
+                            {% for message in messages %}
+                                <h5>{{ message }}</h5>
+                            {% endfor %}
+                        {% endif %}
+                    {% endwith %}
                 </form>
             </div>
         </div>
