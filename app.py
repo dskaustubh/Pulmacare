@@ -172,9 +172,8 @@ def uploadxray():
     eden=eden.split(' ')[0]
     hazard=eden[1:]
     hazard=float(hazard)
-    print(hazard)
-
-
+    with connection.cursor() as cursor:
+        cursor.execute("insert into (h_id,p_id,xray_url,predict,stage)values(%s,%s,%s,%s,%s)",(str(session['h_id'])),)
     return("hi")
     
 if __name__=="__main__":
