@@ -210,8 +210,10 @@ def doc_report(x_id):
     return render_template("doctor_report.html")
 @app.route("/post_pres",methods = ['POST'])
 def post_pres():
-    prescription = request.form.get("text")
+    prescription = request.form.get("prescription")
+    support = request.form.get("support")
     print(prescription)
+    print(support)
     return "check"
 
 if __name__=="__main__":
