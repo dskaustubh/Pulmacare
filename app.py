@@ -145,7 +145,7 @@ def patdash():
 @app.route("/docdash")
 def docdash():
     with connection.cursor() as cursor:
-        cursor.execute("select p_id,stage,predict from xrays order by stage desc")
+        cursor.execute("select p_id,stage,predict,x_id from xrays order by stage desc")
         res1=cursor.fetchall()
         res=[]
         for x in res1:
@@ -156,6 +156,7 @@ def docdash():
             rk['name']=rpl['name']
             rk['pic_url']=rpl['pic_url']
             rk['stage']=x['stage']
+            rk['x_id']=x['x_id']
             rk['predict']=(1-float(x['predict']))*100
             res.append(rk)
         print(res)
@@ -198,7 +199,8 @@ def uploadxray():
         flash("Upload sucessful")
     return redirect(url_for('hosdash'))
 
-@app.route("doctor_report/<string:x_id>")
+
+@app.route("/doctor_report/<string:x_id>")
 def doc_report(x_id):
     return render_template("doctor_report.html")
 if __name__=="__main__":
