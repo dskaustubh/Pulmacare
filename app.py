@@ -145,10 +145,21 @@ def patdash():
 @app.route("/docdash")
 def docdash():
     with connection.cursor() as cursor:
-        cursor.execute("select * from xrays")
-        xs=cursor.fetchall()
+        cursor.execute("select p_id from xrays order by stage desc")
+        res1=cursor.fetchall()
+        res=[]
+        for x in res1:
+            sql_req="select * from users where p_id="+str(x['p_id'])
+            cursor.execute(sql_req)
+            rpl=cursor.fetchone()
+            rk=dict()
+            rk['name']=rpl['name']
+            rk['pic_url']=rpl['pic_url']
+            res.append(rk)
 
-    return render_template("doctor.html",xs=xs)
+    
+
+    return render_template("doctor.html",ps=res)
 
 @app.route("/logout")
 def logout():
