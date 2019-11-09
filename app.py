@@ -2,6 +2,10 @@ from flask import Flask,render_template,request,session,redirect,jsonify,url_for
 import pymysql.cursors
 import hashlib
 import os
+import numpy as np
+import pandas as pd
+from keras.models import load_model
+from keras.preprocessing import image
 from werkzeug.utils import secure_filename
 app =Flask(__name__)
 app.secret_key = b'_5#y2L"F4Q8z\n\xec]/'
@@ -62,6 +66,9 @@ def signup():
         finally:
             return jsonify(robj)
 
+@app.route("/uploadxray",methods=['POST'])
+def uploadxray():
+    pass
 
 @app.route("/login",methods = ['POST'])
 def login():
