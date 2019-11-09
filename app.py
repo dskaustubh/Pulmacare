@@ -156,7 +156,7 @@ def docdash():
             rk['name']=rpl['name']
             rk['pic_url']=rpl['pic_url']
             rk['stage']=x['stage']
-            rk['predict']=x['predict']
+            rk['predict']=(1-float(x['predict']))*100
             res.append(rk)
         print(res)
     return render_template("doctor.html",ps=res)

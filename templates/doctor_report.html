@@ -5,9 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/doctor.css') }}" />
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/patient.css') }}" />
     <link href='https://fonts.googleapis.com/css?family=Poppins' rel="stylesheet" />
-    <title>Pulmacare | Patient</title>
+    <title>Pulmacare | Doctor Report</title>
 </head>
 <body>
     <center>
@@ -43,35 +43,16 @@
             </div>
         <!-- End of Navbar -->
     
-        
-        <!-- Card display of patients -->
-        <div class="patient_cards">
+        <!-- Report -->
+        <div class="report">
             <div class="jumbotron">
-                <div class="row">
-                   {% for p in ps %}
-                    <div class="col-lg-4 col-sm-12 col-md-6" style="margin-top: 3em;">
-                        <div class="card" style="width: 15rem;">
-                            <img class="card-img-top ml-2 pr-3"  src={{p.pic_url}} alt="PatientPic">
-                            <div class="card-body">
-                              <h5 class="card-title">{{p.name}}</h5>
-                              <p class="card-text">Model Prediction</p>
-                              <progress value={{p.predict}} max="100"></progress>
-                              <br>
-                              <span>Percentage:{{p.predict}}</span>
-                            </div>
-                            <div class="card-body">
-                              <a href="#" class="card-link">Go</a>
-                            </div>
-                          </div>
-
-                    </div>
-                    {% endfor %} 
-                </div>
+                <textarea id="prescription" rows="50" cols="40"></textarea>
+                <br>
+                <textarea id="support" rows="50" cols="40"></textarea>
             </div>
         </div>
-        <!-- End of card display of patients -->
-
-
+        <!-- End of Report -->
+    
          <!-- Footer -->
          <a name="contactus"></a>
          <div class="footer">
