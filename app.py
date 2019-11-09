@@ -217,7 +217,7 @@ def post_pres():
     with connection.cursor() as cursor:
         cursor.execute("insert into reports (prescription,support,d_id,x_id) values(%s,%s,%s,%s)",(prescription,support,str(session['d_id']),str(session['x_id'])))
         session['x_id']=''
-    return "check"
+    return ("hail kds")
 
 if __name__=="__main__":
     app.run(debug=True,threaded=False)
