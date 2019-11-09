@@ -55,8 +55,12 @@
                         </div>
                         <div class="form-group">
                             <label for="patient">Patient</label>
-                            <select id="patient_list" name="patient_list">
+                            <select id='pato' name='pato'>
+                                    {%for p in res%}
+                                <option value={{p.p_id}}>{{p.name}}</option>
+                                {%endfor%}
                             </select>
+                            
                         </div>
                         <div class="form-group">
                             <button type="submit" class="btn btn-success">Upload</button> 
