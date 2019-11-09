@@ -56,10 +56,10 @@ def signup():
                 cursor.execute("insert into hospitals(u_id) values(%s)",(myresult['u_id']))
             elif role==2:
                 #patient
-                pass
+                cursor.execute("insert into patients(u_id) values(%s)",(myresult['u_id']))
             else:
                 #doctor
-                pass
+                cursor.execute("insert into doctors(u_id) values(%s)",(myresult['u_id']))
 
             robj['success']=True
             
