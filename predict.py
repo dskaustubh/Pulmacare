@@ -14,3 +14,4 @@ def prediction():
     resp=dict()
     resp['pred']=pred[0]
     return jsonify(resp)
+#YXQDR5WR

@@ -65,7 +65,7 @@
                         <div class="form-group">
                             <button type="submit" class="btn btn-success">Upload</button> 
                         </div>  
-                        {%with messages = get_flashed}_messages()%}
+                        {%with messages = get_flashed_messages()%}
                             {% if messages}
                                 {% for message in messages %}
                                     <h3>{{ message }}</h3>
