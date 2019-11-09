@@ -76,11 +76,12 @@ def login():
     if 'loggedin' in session:
         if session['role']==1:
             #role 1 for hospital,2 for  patient,3 for docs
-            pass
+            return render_template("hospitals.html")
+            
         elif session['role']==2:
-            pass
+            return render_template("patient.html")
         else:
-            pass
+            return render_template("doctor.html")
     # #validation!
     # flag=0
     email = request.form['log_email']
@@ -106,9 +107,29 @@ def login():
             if(phash==myresult['password']):
                 myresult['success']=True
                 #init the session variables
+                session['u_id']=myresult['u_id']
                 session['name']=myresult['name']
                 session['role']=myresult['role']
+                session['pic_url']=myresult['pic_url']
+                session['location']=myresult['location']
                 session['loggedin']=True
+                #role 1 for hospital,2 for  patient,3 for docs
+                if(session['role']=="1"):
+                    sql_req="select * from hospitals where u_id="+str(session['u_id'])
+                    cursor.execute(sql_req)
+                    res1=cursor.fetchone()
+                    session['h_id']=res1['h_id']
+                    return render_template("hospitals.html")
+                elif session['role']==2:
+                    cursor.execute("select * from patients where u_id=%d",session['u_id'])
+                    res1=cursor.fetchone()
+                    session['p_id']=res1['p_id']
+                    return render_template("patient.html")
+                else:
+                    cursor.execute("select * from patients where u_id=%d",session['u_id'])
+                    res1=cursor.fetchone()
+                    session['d_id']=res1['d_id']
+                    return render_template("doctor.html")
             else:
                 myresult['success']=False
         else:
