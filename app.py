@@ -197,6 +197,9 @@ def uploadxray():
         cursor.execute("insert into xrays(h_id,p_id,xray_url,predict,stage) values(%s,%s,%s,%s,%s)",(str(session['h_id']),str(p_id),filename,hazard,stage))
         flash("Upload sucessful")
     return redirect(url_for('hosdash'))
-    
+
+@app.route("doctor_report/<string:x_id>")
+def doc_report(x_id):
+    return render_template("doctor_report.html")
 if __name__=="__main__":
     app.run(debug=True,threaded=False)
