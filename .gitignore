@@ -2,6 +2,5 @@
 chest_xray/
 .DS_Store
 model.h5
-pulmacare.sql
 ./test_03.jpeg
 ./__pycache__

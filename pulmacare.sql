@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 08, 2019 at 06:41 PM
+-- Generation Time: Nov 09, 2019 at 02:41 PM
 -- Server version: 10.3.16-MariaDB
 -- PHP Version: 7.3.7
 
@@ -30,12 +30,19 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `doctors` (
   `d_id` int(11) NOT NULL,
-  `h_id` int(11) NOT NULL,
+  `h_id` int(11) NOT NULL DEFAULT 1,
   `u_id` int(11) NOT NULL,
-  `total_stars` int(11) NOT NULL,
-  `total_ratings` int(11) NOT NULL,
+  `total_stars` int(11) NOT NULL DEFAULT 40,
+  `total_ratings` int(11) NOT NULL DEFAULT 8,
   `timestamp` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `doctors`
+--
+
+INSERT INTO `doctors` (`d_id`, `h_id`, `u_id`, `total_stars`, `total_ratings`, `timestamp`) VALUES
+(1, 1, 22, 40, 8, '2019-11-09 10:29:35');
 
 -- --------------------------------------------------------
 
@@ -49,6 +56,13 @@ CREATE TABLE `hospitals` (
   `time_stamp` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `hospitals`
+--
+
+INSERT INTO `hospitals` (`h_id`, `u_id`, `time_stamp`) VALUES
+(1, 21, '2019-11-09 09:47:19');
+
 -- --------------------------------------------------------
 
 --
@@ -58,9 +72,17 @@ CREATE TABLE `hospitals` (
 CREATE TABLE `patients` (
   `p_id` int(11) NOT NULL,
   `u_id` int(11) NOT NULL,
-  `h_id` int(11) NOT NULL,
+  `h_id` int(11) NOT NULL DEFAULT 1,
   `timestamp` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `patients`
+--
+
+INSERT INTO `patients` (`p_id`, `u_id`, `h_id`, `timestamp`) VALUES
+(1, 24, 1, '2019-11-09 10:33:30'),
+(2, 25, 1, '2019-11-09 11:49:56');
 
 -- --------------------------------------------------------
 
@@ -84,9 +106,10 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`u_id`, `name`, `email`, `password`, `role`, `pic_url`, `location`, `time_stamp`) VALUES
-(12, 'eden', 'kSddd', '8e300e96f75d7ecd26ab09421175a77d', '1', 'pro_pics/Chelsea_FC_Logo_Wallpapers_2013_.jpg', 'maneee', '2019-11-08 13:52:21'),
-(13, 'edenrf', 'kSddd@gmail.com', '2c5733af0f7fac1bf1950b736dd1a090', '2', 'pro_pics/Chelsea_FC_Logo_Wallpapers_2013_.jpg', 'home', '2019-11-08 14:54:30'),
-(14, 'chinmay', '233355gergs1@gmail.com', '5f4dcc3b5aa765d61d8327deb882cf99', 'v', 'pro_pics/IMG_7300.JPG', 'mg road', '2019-11-08 15:39:34');
+(21, 'Manipal Hospital', 'hos1@gmail.com', '5f4dcc3b5aa765d61d8327deb882cf99', '1', 'pro_pics/manipal.jpeg', 'mg road', '2019-11-09 09:47:18'),
+(22, 'Prakash', 'doc1@gmail.com', '5f4dcc3b5aa765d61d8327deb882cf99', '3', 'pro_pics/test_3.jpeg', 'mg road', '2019-11-09 10:29:35'),
+(24, 'Manish', 'man@gmail.com', '5f4dcc3b5aa765d61d8327deb882cf99', '2', 'pro_pics/test_3.jpeg', 'mg road', '2019-11-09 10:33:29'),
+(25, 'Kaustubh', 'kds@gmail.com', '5f4dcc3b5aa765d61d8327deb882cf99', '2', 'pro_pics/test_3.jpeg', 'mg road', '2019-11-09 11:49:56');
 
 -- --------------------------------------------------------
 
@@ -100,6 +123,7 @@ CREATE TABLE `xrays` (
   `p_id` int(11) NOT NULL,
   `xray_url` varchar(50) NOT NULL,
   `predict` varchar(10) NOT NULL,
+  `stage` varchar(10) NOT NULL,
   `time_stamp` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -153,25 +177,25 @@ ALTER TABLE `xrays`
 -- AUTO_INCREMENT for table `doctors`
 --
 ALTER TABLE `doctors`
-  MODIFY `d_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `d_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `hospitals`
 --
 ALTER TABLE `hospitals`
-  MODIFY `h_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `h_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `patients`
 --
 ALTER TABLE `patients`
-  MODIFY `p_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `p_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `u_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `u_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
 --
 -- AUTO_INCREMENT for table `xrays`
