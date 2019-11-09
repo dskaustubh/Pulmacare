@@ -208,5 +208,9 @@ def doc_report(x_id):
         res1=cursor.fetchall()
         print(res1)
     return render_template("doctor_report.html")
+@app.route("/post_pres")
+def post_pres():
+    pass
+
 if __name__=="__main__":
     app.run(debug=True,threaded=False)
