@@ -71,6 +71,14 @@ def uploadxray():
         file = request.files['file']
         filename = secure_filename(file.filename)
         filename="xrays/"+filename
+        file.save(filename)
+        model =load_model('model.h5')
+        img =image.load_img(filename, target_size=(100,100))
+        x = image.img_to_array(img)
+        x = np.expand_dims(x, axis=0)
+        x = x/255.0
+        pred = model.predict_proba(x)
+        return pred[0]
 
 @app.route("/login",methods = ['POST'])
 def login():
