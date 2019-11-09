@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/doctor.css') }}" />
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/patient.css') }}" />
     <link href='https://fonts.googleapis.com/css?family=Poppins' rel="stylesheet" />
     <title>Pulmacare | Patient</title>
 </head>
@@ -44,65 +44,22 @@
         <!-- End of Navbar -->
     
         
-        <!-- Card display of patients -->
-        <div class="patient_cards">
+        <!-- X-ray image -->
+        <div class="xray">
             <div class="jumbotron">
-                <div class="row">
-                    <div class="col-lg-4 col-sm-12 col-md-6" style="margin-top: 3em;">
-                        <div class="card" style="width: 18rem;">
-                            <img class="card-img-top" src="" alt="Patient profile image">
-                            <div class="card-body">
-                              <h5 class="card-title">Patient name</h5>
-                              <p class="card-text">About patient</p>
-                            </div>
-                            <ul class="list-group list-group-flush">
-                              <li class="list-group-item">email</li>
-                              <li class="list-group-item">location</li>
-                              <li class="list-group-item">others..</li>
-                            </ul>
-                            <div class="card-body">
-                              <a href="#" class="card-link">Go</a>
-                            </div>
-                          </div>
-                    </div> 
-                    <div class="col-lg-4 col-sm-12 col-md-6" style="margin-top: 3em;">
-                        <div class="card" style="width: 18rem;">
-                            <img class="card-img-top" src="" alt="Patient profile image">
-                            <div class="card-body">
-                              <h5 class="card-title">Patient name</h5>
-                              <p class="card-text">About patient</p>
-                            </div>
-                            <ul class="list-group list-group-flush">
-                              <li class="list-group-item">email</li>
-                              <li class="list-group-item">location</li>
-                              <li class="list-group-item">others..</li>
-                            </ul>
-                            <div class="card-body">
-                              <a href="#" class="card-link">Go</a>
-                            </div>
-                          </div>
-                    </div> 
-                    <div class="col-lg-4 col-sm-12 col-md-6" style="margin-top: 3em;">
-                        <div class="card" style="width: 18rem;">
-                            <img class="card-img-top" src="" alt="Patient profile image">
-                            <div class="card-body">
-                              <h5 class="card-title">Patient name</h5>
-                              <p class="card-text">About patient</p>
-                            </div>
-                            <ul class="list-group list-group-flush">
-                              <li class="list-group-item">email</li>
-                              <li class="list-group-item">location</li>
-                              <li class="list-group-item">others..</li>
-                            </ul>
-                            <div class="card-body">
-                              <a href="#" class="card-link">Go</a>
-                            </div>
-                          </div>
-                    </div> 
-                </div>
+                <img src="" alt="x-ray">
             </div>
         </div>
-        <!-- End of card display of patients -->
+        <!-- End of X-ray image -->
+
+
+        <!-- Heat map -->
+        <div class="heatmap">
+            <div class="jumbotron">
+                <span style="background-color: red; background-image: linear-gradient(to right, red , yellow);">Hello</span>
+            </div>
+        </div>
+        <!-- End of heat map -->
 
 
          <!-- Footer -->

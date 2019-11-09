@@ -109,7 +109,7 @@ def login():
 @app.route("/logout")
 def logout():
     session.clear()
-    return render_template("login.html")
+    return render_template("index.html")
 
 
 if __name__=="__main__":
