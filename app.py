@@ -68,7 +68,9 @@ def signup():
 
 @app.route("/uploadxray",methods=['POST'])
 def uploadxray():
-    pass
+        file = request.files['file']
+        filename = secure_filename(file.filename)
+        filename="xrays/"+filename
 
 @app.route("/login",methods = ['POST'])
 def login():
