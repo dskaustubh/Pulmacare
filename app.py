@@ -177,10 +177,11 @@ def uploadxray():
         stage=2
     elif(hazard>.6):
         stage=1
-        
+
     with connection.cursor() as cursor:
         cursor.execute("insert into (h_id,p_id,xray_url,predict,stage)values(%s,%s,%s,%s,%s)",(str(session['h_id'])),str(session['p_id']),filename,hazard,stage)
-    return("hi")
+    flash("Upload sucessful")
+    return redirect(url_for('hospitals'))
     
 if __name__=="__main__":
     app.run(debug=True,threaded=False)
