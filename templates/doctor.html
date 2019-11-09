@@ -48,24 +48,21 @@
         <div class="patient_cards">
             <div class="jumbotron">
                 <div class="row">
-                   {% for x in xs %}
+                   {% for p in ps %}
                     <div class="col-lg-4 col-sm-12 col-md-6" style="margin-top: 3em;">
                         <div class="card" style="width: 18rem;">
-                            <img class="card-img-top" src={{x.xray_url}} alt="XRay">
+                            <img class="card-img-top" src={{p.pic_url}} alt="PatientPic">
                             <div class="card-body">
-                              <h5 class="card-title">{{x.name}}</h5>
-                              <p class="card-text">About patient</p>
+                              <h5 class="card-title">{{p.name}}</h5>
+                              <p class="card-text">{{p.stage}}</p>
                             </div>
-                            <ul class="list-group list-group-flush">
-                              <li class="list-group-item">email</li>
-                              <li class="list-group-item">location</li>
-                              <li class="list-group-item">others..</li>
-                            </ul>
                             <div class="card-body">
                               <a href="#" class="card-link">Go</a>
                             </div>
                           </div>
-                    </div> 
+
+                    </div>
+                    {% endfor %} 
                 </div>
             </div>
         </div>

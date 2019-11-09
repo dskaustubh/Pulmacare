@@ -37,7 +37,7 @@ def signup():
         robj['success']=False
         file = request.files['file']
         filename = secure_filename(file.filename)
-        filename="pro_pics/"+filename
+        filename="static/pro_pics/"+filename
         file.save(filename)
         password=request.form['sgn_psw']
         name=request.form['name']
@@ -145,20 +145,20 @@ def patdash():
 @app.route("/docdash")
 def docdash():
     with connection.cursor() as cursor:
-        cursor.execute("select p_id from xrays order by stage desc")
+        cursor.execute("select p_id,stage,predict from xrays order by stage desc")
         res1=cursor.fetchall()
         res=[]
         for x in res1:
-            sql_req="select * from users where p_id="+str(x['p_id'])
+            sql_req="select name,pic_url from users,patients where p_id="+str(x['p_id'])+" and users.u_id=patients.u_id"
             cursor.execute(sql_req)
             rpl=cursor.fetchone()
             rk=dict()
             rk['name']=rpl['name']
             rk['pic_url']=rpl['pic_url']
+            rk['stage']=x['stage']
+            rk['predict']=x['predict']
             res.append(rk)
-
-    
-
+        print(res)
     return render_template("doctor.html",ps=res)
 
 @app.route("/logout")
