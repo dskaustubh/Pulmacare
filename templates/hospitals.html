@@ -66,10 +66,10 @@
                             <button type="submit" class="btn btn-success">Upload</button> 
                         </div>  
                         {%with messages = get_flashed_messages()%}
-                            {% if messages}
+                            {% if messages%}
                                 {% for message in messages %}
                                     <h3>{{ message }}</h3>
-                                {%endFor %}
+                                {%endfor %}
                             {%endif%}
                         {% endwith %}            
                     </div>
