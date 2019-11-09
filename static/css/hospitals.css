@@ -37,8 +37,9 @@ body {
     border-radius: 10px;
     width:98%;
     height: 5em;
+    position: absolute;
+    bottom: 2em;
     color: #005582;
-    bottom: 0;
     left: 0.5em;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
 }
