@@ -47,9 +47,9 @@ def signup():
             cursor.execute("insert into users (name,email,password,role,pic_url) values(%s,%s,%s,%s,%s)",(name,email,phash,role,filename))
             cursor.execute("select * from users where email=%s",email)
             myresult = cursor.fetchone()
-            if role==1:
+            if role=="1":
                 #hospital
-                cursor.execute("insert into hospitals(u_id) values(%d)",(myresult['u_id']))
+                cursor.execute("insert into hospitals(u_id) values(%s)",(myresult['u_id']))
             elif role==2:
                 #patient
                 pass
