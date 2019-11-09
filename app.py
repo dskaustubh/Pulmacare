@@ -138,12 +138,17 @@ def login():
         return jsonify(myresult)
 @app.route("/hosdash")
 def hosdash():
-    return render_template("hospitals.html")
+    with connection.cursor() as cursor:
+        cursor.execute("select * from patients where h_id=%s",str(session['h_id']))
+        res=cursor.fetchall()
+        print(res)
+    return render_template("hospitals.html",res=res)
 @app.route("/patdash")
 def patdash():
     return render_template("patient.html")
 @app.route("/docdash")
 def docdash():
+
     return render_template("doctors.html")
 
 @app.route("/logout")
