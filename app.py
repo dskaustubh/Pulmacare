@@ -175,7 +175,7 @@ def uploadxray():
         stage=3
     elif(hazard<.25):
         stage=2
-    elif(hazard>.4):
+    elif(hazard<.4):
         stage=1
     p_id=request.form['pato']
 
