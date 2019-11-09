@@ -64,8 +64,7 @@ def signup():
             robj['success']=True
             
         finally:
-            return jsonify(robj)
-
+            return redirect(url_for("login_page"))
 @app.route("/uploadxray",methods=['POST'])
 def uploadxray():
     pass
