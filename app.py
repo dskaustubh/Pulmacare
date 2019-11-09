@@ -170,8 +170,16 @@ def uploadxray():
     eden=eden.split(' ')[0]
     hazard=eden[1:]
     hazard=float(hazard)
+    stage=0
+    if(hazard>.9):
+        stage=3
+    elif(hazard>.75):
+        stage=2
+    elif(hazard>.6):
+        stage=1
+        
     with connection.cursor() as cursor:
-        cursor.execute("insert into (h_id,p_id,xray_url,predict,stage)values(%s,%s,%s,%s,%s)",(str(session['h_id'])),str(session['p_id']),filename,pre)
+        cursor.execute("insert into (h_id,p_id,xray_url,predict,stage)values(%s,%s,%s,%s,%s)",(str(session['h_id'])),str(session['p_id']),filename,hazard,stage)
     return("hi")
     
 if __name__=="__main__":
