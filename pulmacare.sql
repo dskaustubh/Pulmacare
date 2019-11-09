@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 09, 2019 at 02:41 PM
+-- Generation Time: Nov 10, 2019 at 12:37 AM
 -- Server version: 10.3.16-MariaDB
 -- PHP Version: 7.3.7
 
@@ -106,10 +106,10 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`u_id`, `name`, `email`, `password`, `role`, `pic_url`, `location`, `time_stamp`) VALUES
-(21, 'Manipal Hospital', 'hos1@gmail.com', '5f4dcc3b5aa765d61d8327deb882cf99', '1', 'pro_pics/manipal.jpeg', 'mg road', '2019-11-09 09:47:18'),
-(22, 'Prakash', 'doc1@gmail.com', '5f4dcc3b5aa765d61d8327deb882cf99', '3', 'pro_pics/test_3.jpeg', 'mg road', '2019-11-09 10:29:35'),
-(24, 'Manish', 'man@gmail.com', '5f4dcc3b5aa765d61d8327deb882cf99', '2', 'pro_pics/test_3.jpeg', 'mg road', '2019-11-09 10:33:29'),
-(25, 'Kaustubh', 'kds@gmail.com', '5f4dcc3b5aa765d61d8327deb882cf99', '2', 'pro_pics/test_3.jpeg', 'mg road', '2019-11-09 11:49:56');
+(21, 'Manipal Hospital', 'hos1@gmail.com', '5f4dcc3b5aa765d61d8327deb882cf99', '1', 'static/pro_pics/manipal.jpeg', 'mg road', '2019-11-09 09:47:18'),
+(22, 'Prakash', 'doc1@gmail.com', '5f4dcc3b5aa765d61d8327deb882cf99', '3', 'static/pro_pics/test_3.jpeg', 'mg road', '2019-11-09 10:29:35'),
+(24, 'Manish', 'man@gmail.com', '5f4dcc3b5aa765d61d8327deb882cf99', '2', 'static/pro_pics/test_3.jpeg', 'mg road', '2019-11-09 10:33:29'),
+(25, 'Kaustubh', 'kds@gmail.com', '5f4dcc3b5aa765d61d8327deb882cf99', '2', 'static/pro_pics/test_3.jpeg', 'mg road', '2019-11-09 11:49:56');
 
 -- --------------------------------------------------------
 
@@ -126,6 +126,16 @@ CREATE TABLE `xrays` (
   `stage` varchar(10) NOT NULL,
   `time_stamp` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `xrays`
+--
+
+INSERT INTO `xrays` (`x_id`, `h_id`, `p_id`, `xray_url`, `predict`, `stage`, `time_stamp`) VALUES
+(3, 1, 1, 'static/xrays/NORMAL2-IM-1438-0001.jpeg', '0.22592881', '2', '2019-11-09 18:00:53'),
+(4, 1, 1, 'static/xrays/person2_bacteria_3.jpeg', '0.00011861', '3', '2019-11-09 18:05:52'),
+(5, 1, 1, 'static/xrays/person1954_bacteria_4886.jpeg', '0.04432284', '3', '2019-11-09 18:06:30'),
+(6, 1, 1, 'static/xrays/person1951_bacteria_4882.jpeg', '1.07505e-6', '3', '2019-11-09 18:10:43');
 
 --
 -- Indexes for dumped tables
@@ -201,7 +211,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `xrays`
 --
 ALTER TABLE `xrays`
-  MODIFY `x_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `x_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- Constraints for dumped tables
