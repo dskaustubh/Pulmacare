@@ -202,6 +202,11 @@ def uploadxray():
 
 @app.route("/doctor_report/<string:x_id>")
 def doc_report(x_id):
+    with connection.cursor() as cursor:
+        sql_req="select * from xrays where x_id="+str(x_id)
+        cursor.execute(sql_req)
+        res1=cursor.fetchall()
+        print(res1)
     return render_template("doctor_report.html")
 if __name__=="__main__":
     app.run(debug=True,threaded=False)
