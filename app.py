@@ -120,13 +120,13 @@ def login():
                     res1=cursor.fetchone()
                     session['h_id']=res1['h_id']
                     return render_template("hospitals.html")
-                elif session['role']==2:
-                    cursor.execute("select * from patients where u_id=%d",session['u_id'])
+                elif session['role']=="2":
+                    cursor.execute("select * from patients where u_id=%s",str(session['u_id']))
                     res1=cursor.fetchone()
                     session['p_id']=res1['p_id']
                     return render_template("patient.html")
                 else:
-                    cursor.execute("select * from patients where u_id=%d",session['u_id'])
+                    cursor.execute("select * from doctors where u_id=%s",str(session['u_id']))
                     res1=cursor.fetchone()
                     session['d_id']=res1['d_id']
                     return render_template("doctor.html")
