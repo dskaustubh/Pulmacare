@@ -2,6 +2,7 @@ from flask import Flask,render_template,request,session,redirect,jsonify,url_for
 import pymysql.cursors
 import hashlib
 import os
+import predict
 import numpy as np
 import pandas as pd
 from keras.models import load_model
@@ -65,9 +66,6 @@ def signup():
             
         finally:
             return redirect(url_for("login_page"))
-@app.route("/uploadxray",methods=['POST'])
-def uploadxray():
-    pass
 
 @app.route("/login",methods = ['POST'])
 def login():
@@ -155,6 +153,21 @@ def logout():
     session.clear()
     return render_template("index.html")
 
+@app.route("/uploadxray",methods=['POST'])
+def uploadxray():
+    #pred=predict.prediction()
+    model = load_model('model.h5')
+    img = image.load_img('test_3.jpeg', target_size=(100,100))#Pneumonia Image 
+    x = image.img_to_array(img)
+    x = np.expand_dims(x, axis=0)
+    x = x/255.0
+    pred=model.predict_proba(x)
+    resp=dict()
+    resp['pred']=pred[0]
+    return jsonify(resp)
+    
+    
+
 
 if __name__=="__main__":
-    app.run(debug=True)
+    app.run(debug=True,threaded=False)
