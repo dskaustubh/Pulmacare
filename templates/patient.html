@@ -47,7 +47,8 @@
         <!-- X-ray image -->
         <div class="xray">
             <div class="jumbotron">
-                <img src="" alt="x-ray">
+                <img src="{{x.xray_url}}" alt="x-ray">
+                <progress value="{{ x.predict }}" max="100"></progress>
             </div>
         </div>
         <!-- End of X-ray image -->
@@ -56,7 +57,7 @@
         <!-- Heat map -->
         <div class="heatmap">
             <div class="jumbotron">
-                <span style="background-color: red; background-image: linear-gradient(to right, red , yellow);">Hello</span>
+                
             </div>
         </div>
         <!-- End of heat map -->
