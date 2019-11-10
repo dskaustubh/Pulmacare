@@ -206,10 +206,13 @@ def doc_report(x_id):
         session['x_id']=x_id
         cursor.execute(sql_req)
         res1=cursor.fetchone()
+        print(res1)
         sql_req="select u_id from patients where p_id="+str(res1['p_id']) 
+        cursor.execute(sql_req)
         res2=cursor.fetchone()
         u_id=res2['u_id']
         sql_req="select name from users where u_id="+str(u_id)
+        cursor.execute(sql_req)
         res2=cursor.fetchone()
         res1['name']=res2['name']
 
