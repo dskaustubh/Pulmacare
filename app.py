@@ -243,9 +243,10 @@ def report_dat(x_id):
     with connection.cursor() as cursor:
         sql_req="select * from reports where x_id="+str(x_id)
         cursor.execute(sql_req)
-        res=cursor.fetchall()
+        res=cursor.fetchone()
         print(res)
     return render_template("report_pat.html",res=res)
+    
 
 if __name__=="__main__":
     app.run(debug=True,threaded=False)
