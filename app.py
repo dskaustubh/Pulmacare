@@ -236,7 +236,11 @@ def patdash():
         for r in res:
             if r['x_id'] in x_ids:
                 xs.append(r)
-        print(xs)    
+        print(xs)     
         return render_template("patient.html",xs=res)
+@app.route("/report_pat/<string:x_id>")
+def report_dat(x_id):
+    return (x_id)
+
 if __name__=="__main__":
     app.run(debug=True,threaded=False)

@@ -48,12 +48,19 @@
         <div class="xray">
             <div class="jumbotron">
                 <div class="row">
-                        {%for x in xs%}
-                    <div class="col-lg-4 col-md-6 col-sm-12  mt-2">
-                        
-                            <img src="{{x.xray_url}}" height="200em" width="200em"   alt="x-ray">
-                        
-                    </div>
+                    {%for x in xs%}
+                        <div class="col-lg-4 col-sm-12 col-md-6" style="margin-top: 3em;">
+                                <div class="card" style="width: 15rem;">
+                                    <img class="card-img-top ml-2 pr-2"  src={{x.xray_url}} alt="Patient x-ray">
+                                    <div class="card-body">
+                                    <h5 class="card-title">{{x.timestamp}}</h5>
+                                    </div>  
+                                    <div class="card-body">
+                                    <a href="report_pat/{{x.x_id}}" class="card-link">Go</a>
+                                    </div>
+                                </div>
+        
+                        </div>
                     {%endfor%}
                 </div>
             </div>
