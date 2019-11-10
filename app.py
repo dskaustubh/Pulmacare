@@ -134,13 +134,8 @@ def hosdash():
         res=cursor.fetchall()
         print(res)
     return render_template("hospitals.html",res=res)
-@app.route("/patdash")
-def patdash():
-    with connection.cursor() as cursor:
-        cursor.execute("select * from xrays where p_id=%s",str(session['p_id']))
-        x_imgs=cursor.fetchall()
-        print(x_imgs)
-    return render_template("patient.html")
+
+
 @app.route("/docdash")
 def docdash():
     with connection.cursor() as cursor:
@@ -228,6 +223,14 @@ def post_pres():
         cursor.execute("insert into reports (prescription,support,d_id,x_id) values(%s,%s,%s,%s)",(prescription,support,str(session['d_id']),str(session['x_id'])))
         session['x_id']=''
     return redirect(url_for('docdash'))
-
+@app.route("/patdash")
+def patdash():
+    with connection.cursor() as cursor:
+        cursor.execute("select * from xrays where p_id=%s",str(session['p_id']))
+        res=cursor.fetchall()
+        x_id=res['x_id']
+        print(x_id)
+        # print(x_imgs)
+        return render_template("patient.html")
 if __name__=="__main__":
     app.run(debug=True,threaded=False)
