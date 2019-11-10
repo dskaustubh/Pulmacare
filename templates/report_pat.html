@@ -59,24 +59,24 @@
             <div class="jumbotron">
                 <div class="row">
                     <div class="col-4">
-                        Date:
+                        Date: {{ res.time_stamp.date() }}
                     </div>
                     <div class="col-4">
                         <b>PULMACARE</b>
                     </div>
                     <div class="col-4">
                         Dr.<br>
-                        Qualification:<br>
-                        Email id: 
+                        Qualification: M.B.B.S,M.Ch[Radiology]<br>
+                        Email id: vijaymallya@gmail.com
                     </div>
                 </div>
                 <hr size="2em">
                 <h3>1)Prescription</h3><br>
-                <p></p>
+                <p>{{res.prescription}}</p>
                 <h3>2)Supportive Care</h3>
-                <p></p>
+                <p>{{ res.support }}</p>
                 <hr size="2em">
-                <img src="" alt="sign" style="float: right;">
+                <img src="../static/images/signature.jpg" alt="sign" style="float: right;">
             </div>
         </div>
         <!-- End of Report -->
