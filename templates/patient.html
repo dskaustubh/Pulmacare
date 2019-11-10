@@ -53,8 +53,9 @@
                                 <div class="card" style="width: 15rem;">
                                     <img class="card-img-top ml-2 pr-2"  src={{x.xray_url}} alt="Patient x-ray">
                                     <div class="card-body">
-                                    <h5 class="card-title">{{x.time_stamp}}</h5>
-                                    </div>  
+                                    <p>Date Of upload</p>    
+                                    <h5 class="card-title">{{x.time_stamp.date()}}</h5>
+                                    </div> 
                                     <div class="card-body">
                                     <a href="report_pat/{{x.x_id}}" class="card-link">Go</a>
                                     </div>
@@ -66,36 +67,7 @@
             </div>
         </div>
         <!-- End of X-ray image -->
-
-<p>{{xs}}</p>
-        <!-- Report -->
-        <div class="repo">
-            <div class="jumbotron">
-                <div class="row">
-                    <div class="col-4">
-                        Date:
-                    </div>
-                    <div class="col-4">
-                        <b>PULMACARE</b>
-                    </div>
-                    <div class="col-4">
-                        Dr.<br>
-                        Qualification:<br>
-                        Email id: 
-                    </div>
-                </div>
-                <hr size="2em">
-                <h3>1)Prescription</h3><br>
-                <p></p>
-                <h3>2)Supportive Care</h3>
-                <p></p>
-                <hr size="2em">
-                <img src="" alt="sign" style="float: right;">
-            </div>
-        </div>
-        <!-- End of Report -->
-
-
+        
          <!-- Footer -->
          <a name="contactus"></a>
          <div class="footer">
