@@ -42,16 +42,17 @@
                 </nav>    
             </div>
         <!-- End of Navbar -->
-    
+            
         <!-- Report -->
         <div class="report">
             <div class="jumbotron">
                 <form action="/post_pres" method="POST">
-                        <textarea id="prescription"name="prescription" rows="30" cols="40"></textarea>
+                    <img src={{x.xray_url}} alt="">
+                        <textarea id="prescription"name="prescription" rows="15" cols="100" placeholder="Prescription goes here"></textarea>
                         <br>
-                        <textarea id="support" name="support" rows="30" cols="40"></textarea>
+                        <textarea id="support" name="support" rows="15" cols="100" placeholder="Supportive care"></textarea>
                         <br>
-                        <button type="submit">Submit</button>
+                        <button type="submit" class="btn btn-outline-success">Submit</button>
                 </form>
             </div>
         </div>

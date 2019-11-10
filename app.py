@@ -205,9 +205,10 @@ def doc_report(x_id):
         sql_req="select * from xrays where x_id="+str(x_id)
         session['x_id']=x_id
         cursor.execute(sql_req)
-        res1=cursor.fetchall()
-        print(res1)
-    return render_template("doctor_report.html")
+        res1=cursor.fetchone()
+        
+    return render_template("doctor_report.html",x=res1)
+
 @app.route("/post_pres",methods = ['POST'])
 def post_pres():
     prescription = request.form.get("prescription")
@@ -217,7 +218,7 @@ def post_pres():
     with connection.cursor() as cursor:
         cursor.execute("insert into reports (prescription,support,d_id,x_id) values(%s,%s,%s,%s)",(prescription,support,str(session['d_id']),str(session['x_id'])))
         session['x_id']=''
-    return ("hail kds")
+    return redirect(url_for('docdash'))
 
 if __name__=="__main__":
     app.run(debug=True,threaded=False)

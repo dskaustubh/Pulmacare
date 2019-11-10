@@ -28,8 +28,13 @@ body {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
 }
 
-.heatmap .jumbotron {
-    
+
+
+.report .jumbotron {
+    margin-top: 6em;
+    width: 80%;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
 }
 
 .footer .jumbotron {
