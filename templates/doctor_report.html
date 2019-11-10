@@ -47,7 +47,19 @@
         <div class="report">
             <div class="jumbotron">
                 <form action="/post_pres" method="POST">
-                    <img src="../{{x.xray_url}}" alt="">
+                        <div class="row">
+                            <div class="col-6">
+                                Patient name : {{ x.name }}<br><br>
+                                Stage: {{ x. stage}}<br><br>
+                                Prediction by model: {{ x.prediction }}<br>
+                            </div>
+                            <div class="col-6">
+                                <h4>X-Ray</h4><br>
+                                <img src="../{{x.xray_url}}" alt="x-ray" height="350em" width="350em">
+                                <br>
+                            </div>
+                        </div>
+                        <hr>
                         <textarea id="prescription"name="prescription" rows="15" cols="100" placeholder="Prescription goes here"></textarea>
                         <br>
                         <textarea id="support" name="support" rows="15" cols="100" placeholder="Supportive care"></textarea>
