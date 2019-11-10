@@ -228,7 +228,16 @@ def patdash():
     with connection.cursor() as cursor:
         cursor.execute("select * from xrays where p_id=%s",str(session['p_id']))
         res=cursor.fetchall()
-        print(res)
+        cursor.execute("select x_id from reports")
+        xs=[]
+        xpq=cursor.fetchall()
+        x_ids=[x['x_id']for x in xpq]
+        print(x_ids)
+        for r in res:
+            if r['x_id'] in x_ids:
+                xs.append(r)
+        
+        print(xs)    
         return render_template("patient.html",xs=res)
 if __name__=="__main__":
     app.run(debug=True,threaded=False)
