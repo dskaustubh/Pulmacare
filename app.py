@@ -232,11 +232,10 @@ def patdash():
         xs=[]
         xpq=cursor.fetchall()
         x_ids=[x['x_id']for x in xpq]
-        print(x_ids)
+        print(x_ids) 
         for r in res:
             if r['x_id'] in x_ids:
                 xs.append(r)
-        
         print(xs)    
         return render_template("patient.html",xs=res)
 if __name__=="__main__":

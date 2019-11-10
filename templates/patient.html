@@ -47,13 +47,20 @@
         <!-- X-ray image -->
         <div class="xray">
             <div class="jumbotron">
-                <img src="" alt="x-ray">
-                <progress value="" max="100"></progress>
+                <div class="row">
+                        {%for x in xs%}
+                    <div class="col-lg-4 col-md-6 col-sm-12  mt-2">
+                        
+                            <img src="{{x.xray_url}}" height="200em" width="200em"   alt="x-ray">
+                        
+                    </div>
+                    {%endfor%}
+                </div>
             </div>
         </div>
         <!-- End of X-ray image -->
 
-
+<p>{{xs}}</p>
         <!-- Report -->
         <div class="repo">
             <div class="jumbotron">
