@@ -43,34 +43,24 @@
             </div>
         <!-- End of Navbar -->
     
-        
-        <!-- X-ray image -->
-        <div class="xray">
-            <div class="jumbotron">
-                <img src="" alt="x-ray"><br>
-                <progress value="" max="100"></progress>
-            </div>
-        </div>
-        <!-- End of X-ray image -->
-
-
         <!-- Report -->
         <div class="repo">
             <div class="jumbotron">
                 <div class="row">
                     <div class="col-4">
-                        Date: {{ res.time_stamp.date() }}
+                        <h4>Date: {{ res.time_stamp.date() }}</h4>
                     </div>
                     <div class="col-4">
-                        <b>PULMACARE</b>
+                        <h3>PULMACARE</h3>
                     </div>
                     <div class="col-4">
-                        Dr.Vijaya Mallya<br>
+                        <h5>Dr.Vijaya Mallya<br>
                         Qualification: M.B.B.S,M.Ch[Radiology]<br>
-                        Email id: vijaymallya@gmail.com
+                        Email id: vijaymallya@gmail.com</h5>
                     </div>
                 </div>
                 <hr size="5em" style="height:0em;border: 1px solid black;">
+                <br>
                 <h3>1)Prescription</h3><br>
                 <p>{{res.prescription}}</p><br>
                 <h3>2)Supportive Care</h3><br>
