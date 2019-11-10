@@ -2,7 +2,9 @@ body {
     font-family: 'Neuton', serif;
     font-family: 'Poppins';
     /* background-color: #97bb35; */
+    /* background-color: rgb(52, 181, 224); */
     background-color: teal;
+    
 }
 
 .navbar {
@@ -68,8 +70,8 @@ body {
 }
 
 .footer .jumbotron {
-    /* background-color: #b5b462; */
-    background-color: #97bb35;
+    background-color: #b5b462;
+    /* background-color: #97bb35; */
     margin-top: 1em;
     border-style: none; 
     border-radius: 10px;
