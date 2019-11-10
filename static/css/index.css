@@ -23,15 +23,15 @@ body {
 
 .header .jumbotron{
     background-size:cover;
-    background-color: #005582;
+    /* background-color: #005582; */
+    background-color: #fff;
     margin-top: 9em;
     border-radius: 10px;
     height: 20em;
     width: 6em;
     width:80%;
-    color: yellow;
-    text-align: left;
-    border-style: dashed; 
+    color: #000;
+    text-align: left; 
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
 }
 
@@ -44,7 +44,6 @@ body {
     height: 20em;
     width: 90%;
     /* background-color: transparent; */
-    border: 2px dashed yellow;
     padding: 2em;
     font-weight: bold;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
