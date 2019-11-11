@@ -1,2 +1,2 @@
 # Pulmacare
-Solution for rakuten hack
+Solution for rakuten 2.0 hack
