@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 10, 2019 at 12:37 AM
+-- Generation Time: Nov 24, 2019 at 05:05 AM
 -- Server version: 10.3.16-MariaDB
 -- PHP Version: 7.3.7
 
@@ -42,7 +42,7 @@ CREATE TABLE `doctors` (
 --
 
 INSERT INTO `doctors` (`d_id`, `h_id`, `u_id`, `total_stars`, `total_ratings`, `timestamp`) VALUES
-(1, 1, 22, 40, 8, '2019-11-09 10:29:35');
+(1, 1, 27, 40, 8, '2019-11-10 07:17:22');
 
 -- --------------------------------------------------------
 
@@ -61,7 +61,7 @@ CREATE TABLE `hospitals` (
 --
 
 INSERT INTO `hospitals` (`h_id`, `u_id`, `time_stamp`) VALUES
-(1, 21, '2019-11-09 09:47:19');
+(1, 26, '2019-11-10 07:10:01');
 
 -- --------------------------------------------------------
 
@@ -81,8 +81,12 @@ CREATE TABLE `patients` (
 --
 
 INSERT INTO `patients` (`p_id`, `u_id`, `h_id`, `timestamp`) VALUES
-(1, 24, 1, '2019-11-09 10:33:30'),
-(2, 25, 1, '2019-11-09 11:49:56');
+(3, 28, 1, '2019-11-10 07:23:43'),
+(4, 29, 1, '2019-11-10 07:24:36'),
+(5, 30, 1, '2019-11-10 07:27:58'),
+(6, 31, 1, '2019-11-10 07:28:37'),
+(7, 32, 1, '2019-11-10 07:29:24'),
+(8, 33, 1, '2019-11-10 07:30:22');
 
 -- --------------------------------------------------------
 
@@ -106,10 +110,14 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`u_id`, `name`, `email`, `password`, `role`, `pic_url`, `location`, `time_stamp`) VALUES
-(21, 'Manipal Hospital', 'hos1@gmail.com', '5f4dcc3b5aa765d61d8327deb882cf99', '1', 'static/pro_pics/manipal.jpeg', 'mg road', '2019-11-09 09:47:18'),
-(22, 'Prakash', 'doc1@gmail.com', '5f4dcc3b5aa765d61d8327deb882cf99', '3', 'static/pro_pics/test_3.jpeg', 'mg road', '2019-11-09 10:29:35'),
-(24, 'Manish', 'man@gmail.com', '5f4dcc3b5aa765d61d8327deb882cf99', '2', 'static/pro_pics/test_3.jpeg', 'mg road', '2019-11-09 10:33:29'),
-(25, 'Kaustubh', 'kds@gmail.com', '5f4dcc3b5aa765d61d8327deb882cf99', '2', 'static/pro_pics/test_3.jpeg', 'mg road', '2019-11-09 11:49:56');
+(26, 'Ramaiah Hospital', 'hos1@gmail.com', '5f4dcc3b5aa765d61d8327deb882cf99', '1', 'static/pro_pics/hospital.jpg', 'mg road', '2019-11-10 07:10:00'),
+(27, 'VIjay Mallya', 'doc1@gmail.com', '5f4dcc3b5aa765d61d8327deb882cf99', '3', 'static/pro_pics/mallya.jpg', 'mg road', '2019-11-10 07:17:21'),
+(28, 'Manish M', 'pat1@gmail.com', '5f4dcc3b5aa765d61d8327deb882cf99', '2', 'static/pro_pics/pat1.jpg', 'mg road', '2019-11-10 07:23:43'),
+(29, 'Kaustubh DS', 'pat2@gmail.com', '5f4dcc3b5aa765d61d8327deb882cf99', '2', 'static/pro_pics/pat2.jpg', 'mg road', '2019-11-10 07:24:36'),
+(30, 'Jayanth Vikram', 'pat3@gmail.com', '5f4dcc3b5aa765d61d8327deb882cf99', '2', 'static/pro_pics/pat3.jpg', 'mg road', '2019-11-10 07:27:58'),
+(31, 'Keerthana', 'pat4@gmail.com', '5f4dcc3b5aa765d61d8327deb882cf99', '2', 'static/pro_pics/pat4.jpg', 'mg road', '2019-11-10 07:28:37'),
+(32, 'Sai Sumanth', 'pat5@gmail.com', '5f4dcc3b5aa765d61d8327deb882cf99', '2', 'static/pro_pics/pat5.jpg', 'mg road', '2019-11-10 07:29:24'),
+(33, 'Manoja U', 'pat6@gmail.com', '5f4dcc3b5aa765d61d8327deb882cf99', '2', 'static/pro_pics/pat6.jpg', 'mg road', '2019-11-10 07:30:22');
 
 -- --------------------------------------------------------
 
@@ -132,10 +140,16 @@ CREATE TABLE `xrays` (
 --
 
 INSERT INTO `xrays` (`x_id`, `h_id`, `p_id`, `xray_url`, `predict`, `stage`, `time_stamp`) VALUES
-(3, 1, 1, 'static/xrays/NORMAL2-IM-1438-0001.jpeg', '0.22592881', '2', '2019-11-09 18:00:53'),
-(4, 1, 1, 'static/xrays/person2_bacteria_3.jpeg', '0.00011861', '3', '2019-11-09 18:05:52'),
-(5, 1, 1, 'static/xrays/person1954_bacteria_4886.jpeg', '0.04432284', '3', '2019-11-09 18:06:30'),
-(6, 1, 1, 'static/xrays/person1951_bacteria_4882.jpeg', '1.07505e-6', '3', '2019-11-09 18:10:43');
+(7, 1, 3, 'static/xrays/demo1.jpeg', '0.9999993', '0', '2019-11-10 08:02:02'),
+(8, 1, 4, 'static/xrays/demo2.jpeg', '1.49516e-9', '3', '2019-11-10 08:02:15'),
+(9, 1, 5, 'static/xrays/demo3.jpeg', '0.9945253', '0', '2019-11-10 08:02:25'),
+(10, 1, 6, 'static/xrays/demo4.jpeg', '1.0602e-7', '3', '2019-11-10 08:02:35'),
+(11, 1, 7, 'static/xrays/demo5.jpeg', '0.9962212', '0', '2019-11-10 08:02:47'),
+(12, 1, 8, 'static/xrays/demo6.jpeg', '3.8882e-10', '3', '2019-11-10 08:02:55'),
+(13, 1, 3, 'static/xrays/person1_bacteria_2.jpeg', '0.00234741', '3', '2019-11-10 08:48:49'),
+(14, 1, 7, 'static/xrays/person3_bacteria_13.jpeg', '0.03039671', '3', '2019-11-10 08:49:12'),
+(16, 1, 4, 'static/xrays/person1946_bacteria_4874.jpeg', '1.24086e-7', '3', '2019-11-10 08:55:44'),
+(17, 1, 4, 'static/xrays/person1946_bacteria_4874.jpeg', '1.24086e-7', '3', '2019-11-10 10:44:51');
 
 --
 -- Indexes for dumped tables
@@ -187,31 +201,31 @@ ALTER TABLE `xrays`
 -- AUTO_INCREMENT for table `doctors`
 --
 ALTER TABLE `doctors`
-  MODIFY `d_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `d_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `hospitals`
 --
 ALTER TABLE `hospitals`
-  MODIFY `h_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `h_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `patients`
 --
 ALTER TABLE `patients`
-  MODIFY `p_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `p_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `u_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+  MODIFY `u_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
 
 --
 -- AUTO_INCREMENT for table `xrays`
 --
 ALTER TABLE `xrays`
-  MODIFY `x_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `x_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- Constraints for dumped tables
