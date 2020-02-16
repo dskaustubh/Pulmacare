@@ -1,2 +1,5 @@
 # Pulmacare
-Solution for rakuten 2.0 hack
+Pulmacare is a web platform for diagnosis of Pneumonia
+by leveraging Chest X-Rays employing a Convolutional Neural
+Network (CNN).
+
